@@ -4,9 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTestContextMenu"
+        xmlns:wpf="clr-namespace:LibVLCSharp.WPF;assembly=LibVLCSharp.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button Width="100" Content="Play" Click="Button_Click" />
+        <WindowsFormsHost Name="WindowsFormsHost" Grid.Row="1" Grid.Column="1">
+            <WindowsFormsHost.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Test" />
+                    <MenuItem Header="Test1" />
+                </ContextMenu>
+            </WindowsFormsHost.ContextMenu>
+        </WindowsFormsHost>
+        <wpf:VideoView Grid.Row="1" x:Name="WpfVideoView">
+            <wpf:VideoView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Test" />
+                    <MenuItem Header="Test1" />
+                </ContextMenu>
+            </wpf:VideoView.ContextMenu>
+        </wpf:VideoView>
     </Grid>
 </Window>

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using LibVLCSharp.Shared;
 
 namespace WpfTestContextMenu
 {
@@ -13,5 +14,9 @@ namespace WpfTestContextMenu
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            Core.Initialize();
+        }
     }
 }
